@@ -1,0 +1,62 @@
+/* body {
+    background: #00ff84;
+    color: black;
+} */
+
+/* 
+.subtitle => class named subtitle
+<div class="subtitle" > Text</div>
+<div class="subtitle" > Text</div>
+<div class="subtitle" > Text</div>
+<div class="subtitle" > Text</div>
+*/
+
+/* 
+#uniquePic => id named uniquePic
+<div id="uniquePic" > </div>
+
+
+RULE OF THUMB:
+INLINE > ID > CLASS > TAGNAME
+
+Specificity
+(#ids in the rule, #classes in the rule, #tagnames)
+
+
+Descendent Combinat
+a b {
+    We select all the "a" that have "b" as ancestor
+}
+
+#mainPart .subtitle { //SELECT ALL THE ELEMENTS WITH CLASS SUBTITLE INSIDE OF THE #MAINPART
+}
+
+#mainPart>.subtitle { //SELECT ONLY THE CHILD OF ELEMENTS WITH ID #MAINPART
+
+*/
+
+/* #mainPart>.subtitle { }
+
+#mainPart ~  .subtitle { } */
+/*  
+    <div>
+        <div id="mainPart" > test</div>
+        <p class="subtitle > </div> <== this element will be affect
+    </div>
+    <p class="subtitle > </div>
+*/
+
+
+.song-card {
+    height: 350px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.song-card_image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius:10px;
+}
