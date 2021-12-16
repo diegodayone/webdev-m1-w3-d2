@@ -51,7 +51,24 @@ a b {
     height: 350px;
     width: 300px;
     border-radius: 10px;
+    position:relative;
 }
+
+.song-card:hover {
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.35);
+    /* box-shadow: 0px 6px 20px rbga(0,0,0,0.35); */
+}
+
+.song-card:hover .song-card-play {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.song-card:hover .song-card-info {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
 
 .song-card_image {
     height: 100%;
@@ -59,4 +76,89 @@ a b {
     object-fit: cover;
     object-position: center;
     border-radius:10px;
+}
+
+.song-card .song-card-info {
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    text-align:center;
+    z-index:5;
+    padding: 5px 10px;
+    opacity: 1;
+    transition: opacity .2s, transform .2s;
+    transition-timing-function: ease-in;
+}
+
+.song-card-artist {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.song-card-album {
+    font-size: 0.7em;
+    line-height: 1em;
+}
+
+.song-card-title {
+    font-size:1.3em;
+    line-height: 1.5em;
+}
+
+.song-card-album, .song-card-artist, .song-card-title {
+    color: white;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-card::before {
+    content: "";
+    display:block;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index: 1;
+    background-image: linear-gradient(to top, black 0%, transparent 40%);
+}
+
+.song-card-play {
+    position:absolute;
+    left:10px;
+    bottom:10px;
+    z-index:10;
+    width: 50px;
+    height: 50px;
+    background: #00ff84;
+    border-radius: 50%;
+    cursor:pointer;
+    /* display:none; */
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity .2s, transform .2s;
+    transition-timing-function: ease-in;
+    transition-delay:2s
+}
+
+.song-card-play:before {
+    content:"";  /* NEEDED, must have for BEFORE */
+    /* POSITION CENTERED */
+    position:absolute;
+    top: 0;
+    left:0;
+    bottom: 0;
+    right:0;
+    margin:auto;
+    /* END OF POSITION CENTERED */
+    display:block;
+    /* BEGIN TRIANGLE HACK */
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 7px 0 7px 10px;
+    border-color: transparent transparent transparent #FFFFFF;
+    /* END TRIANGLE HACK */
 }
